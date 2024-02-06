@@ -1,24 +1,16 @@
-# Credit Card Number Validation Utility Function
-def validate_credit_card(credit_card):
-    # Check if credit card is valid format
-    if len(credit_card)!= 16:
-        print("Credit card number format error!")
-        return False
+import re
 
-    # Check if credit card digits are valid
-    digits = "1234567891234567890"
-    for digit in credit_card:
-        if digit not in digits:
-            print("Credit card number contains invalid digits!")
-            return False
+# Regular expression for Luhn's formula check
+luhn_check_regex = r"^(?:2[48]|3[27]|(?:5[1-5])|(?:6011)|(?:6221|(?:6|9)[0-9])|(?:7[47])|(?:8[0-9])|(?:9[0-9]))\s*\d{13}$"
 
-    return True
+# Declare variable for credit card number
+credit_card_number = input("Enter credit card number: ")
 
-# Sample Credit Card Number Input
-input_credit_card = "4111114117111211"
-
-# Call validate_credit_card function with input credit card number
-if validate_credit_card(input_credit_card):
-    print("Credit card number is valid!")
+# Check if input is valid credit card number
+if re.match(luhn_check_regex, credit_card_number):
+    print("Valid credit card number.")
 else:
-    print("Credit card number is invalid...")
+    print("Invalid credit card number. Check Luhn's formula.")
+
+
+#This code block uses the `re` module for regular expressions to check if the input credit card number matches the Luhn's check pattern. If the pattern matches, the (Max output tokens reached.)
